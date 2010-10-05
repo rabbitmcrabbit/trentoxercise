@@ -22,24 +22,21 @@ class ConvertToDict:
 
     def __init__(self):
         self.tmp_dict = {}
-        self.return_dict = {}
 
     def walk_string(self, some_string):
         """Walk given text string and return a dictionary. 
         Maintain state in instance attributes in case we hit an exception"""
+        self.reset()
         l = string.split(some_string)
         for i in range(len(l)):
             key = str(i)
             self.tmp_dict[key] = int(l[i])
         return_dict = self.tmp_dict
-        self.return_dict = self.tmp_dict
-        self.reset()
         return return_dict
 
     def reset(self):
         """Clean up"""
         self.tmp_dict = {}
-        self.return_dict = {}
 
     def get_number_dict(self, some_string):
         """Do super duper exception handling here"""
