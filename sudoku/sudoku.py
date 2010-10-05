@@ -38,3 +38,13 @@ def is_valid_but_maybe_incomplete(grid):
            (not is_block_valid(get_box(grid, i))):
                 return False
     return True
+
+def get_value(grid, index):
+    x = index % 9
+    y = index / 9
+    return grid[y][x]
+
+def set_value(grid, index, value)
+    x = index % 9
+    y = index / 9
+    grid[y][x] = value
