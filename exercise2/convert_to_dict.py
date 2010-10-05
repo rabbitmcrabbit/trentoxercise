@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 Debugging example adapted from a nice tutorial by Jeremy Jones,
@@ -7,6 +8,7 @@ http://onlamp.com/pub/a/python/2005/09/01/debugger.html?page=1
 
 import string
 import sys
+import unittest
 
 class ConvertToDict:
     """Split a line of text into integer values and store them in a dictionary.
@@ -47,6 +49,16 @@ class ConvertToDict:
             # if we hit an exception, we can rely on tmp_dict 
             # being a backup to the point of the exception
             return self.tmp_dict
+            
+class FirstTestCase(unittest.TestCase):
+    def testIt(self):
+        cases = [
+            ('1234 2345 3456 4567', {'0': '1234', '1': '2345', '2': '3456', '3': '4567'}),
+            ('9876 8765 7654 6543', {'0': '9876', '1': '8765', '2': '7654', '3': '6543'}),
+            ]
+        ctd = ConvertToDict()
+        for query, result in cases:
+            self.assertEqual(ctd.get_number_dict(query), result)
 
 def main():
     ctd = ConvertToDict()
@@ -60,4 +72,5 @@ def main():
         print "*" * 40
     
 if __name__ == "__main__":
-    main()
+    #main()
+    unittest.main()
