@@ -51,14 +51,21 @@ class ConvertToDict:
             return self.tmp_dict
             
 class FirstTestCase(unittest.TestCase):
-    def testIt(self):
+    def testStateConfusion(self):
         cases = [
-            ('1234 2345 3456 4567', {'0': '1234', '1': '2345', '2': '3456', '3': '4567'}),
-            ('9876 8765 7654 6543', {'0': '9876', '1': '8765', '2': '7654', '3': '6543'}),
+            ('1234 2345 3456 4567', {'0': 1234, '1': 2345, '2': 3456, '3': 4567}),
+            ('9876 8765 7654 6543', {'0': 9876, '1': 8765, '2': 7654, '3': 6543}),
             ]
         ctd = ConvertToDict()
+
         for query, result in cases:
             self.assertEqual(ctd.get_number_dict(query), result)
+            
+        ctd.get_number_dict('13 34 34 34 34 34 34 14\x0815 16 17')
+        
+        for query, result in cases:
+            self.assertEqual(ctd.get_number_dict(query), result)
+        
 
 def main():
     ctd = ConvertToDict()
