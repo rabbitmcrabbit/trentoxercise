@@ -57,7 +57,14 @@ class TestSolveSudoku(unittest.TestCase):
             print 'Solving', k
             self.assertEqual(sudoku.solve_sudoku(sudoku_problems[k]),
                              sudoku_solutions[k])
-        
+
+
+class TestExtractionOperations(unittest.TestCase):
+    def test_row_extraction(self):
+        self.assertEqual(sudoku.get_row(sudoku_problems['easy1'],0), [0,0,3,7,0,0,0,5,0])
+
+    def test_column_extraction(self):
+        self.assertEqual(sudoku.get_column(sudoku_problems['easy1'],0), [0,0,1,5,8,0,3,0,0])
            
 if __name__ == '__main__':
     unittest.main()
