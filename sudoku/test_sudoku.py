@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Test suite for a Sudoku solver.
 
@@ -65,6 +66,9 @@ class TestExtractionOperations(unittest.TestCase):
 
     def test_column_extraction(self):
         self.assertEqual(sudoku.get_column(sudoku_problems['easy1'],0), [0,0,1,5,8,0,3,0,0])
+        
+    def test_box_extracttion(self):
+        self.assertEqual(sudoku.get_box(sudoku_problems['easy1'], 0), [0,0,3,0,7,0,1,0,0])
            
 if __name__ == '__main__':
     unittest.main()
