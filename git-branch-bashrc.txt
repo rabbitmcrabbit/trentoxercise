@@ -1,0 +1,1 @@
+export PS1="\u@\h:\w\`ruby -e \"print (%x{git branch 2> /dev/null}.split($/).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '\[\033[00;31m\] (\1)\[\033[00;30m\]')\"\`$ "
