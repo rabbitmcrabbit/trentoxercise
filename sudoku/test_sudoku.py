@@ -69,6 +69,12 @@ class TestExtractionOperations(unittest.TestCase):
         
     def test_box_extracttion(self):
         self.assertEqual(sudoku.get_box(sudoku_problems['easy1'], 0), [0,0,3,0,7,0,1,0,0])
+        
+    def test_valididy(self):
+        self.assertTrue(sudoku.is_block_valid([0,0,0,0,0,0,0,0,0]))
+        self.assertTrue(sudoku.is_block_valid([0,0,0,1,2,0,0,0,0]))
+        self.assertFalse(sudoku.is_block_valid([0,2,0,1,2,0,0,0,0]))
+        self.assertFalse(sudoku.is_block_valid([0,0,0,0,0,0,10,0,0]))
            
 if __name__ == '__main__':
     unittest.main()
