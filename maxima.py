@@ -20,7 +20,7 @@ def find_maxima(x):
     """
 
     if type(x) != type([]):
-        message = 'Input argument must be a list, got %d instead' % type(x)
+        message = 'Input argument must be a list, got %s instead' % type(x)
         raise TypeError(message)
 
     idx = []
@@ -78,6 +78,10 @@ class MyTestCase(unittest.TestCase):
             ([4,2,1,3,1], [0, 3])]
         for (arg,result) in testcases:
             self.assertEqual(find_maxima(arg),result)
+
+    # argument is correctly types
+    def test_dog(self):
+        self.assertRaises(TypeError,find_maxima,'dog')
 
 
 if __name__=='__main__':
